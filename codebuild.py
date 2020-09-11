@@ -1,6 +1,6 @@
 from troposphere import Ref, Template
 import troposphere.codebuild as codebuild
-from troposphere.codebuild import Artifacts, Environment, Source, Project
+from troposphere.codebuild import Artifacts, Environment, Source, Project, WebhookFilter, ProjectTriggers
 
 template = Template()
 template.add_version('2010-09-09')
@@ -19,6 +19,10 @@ source = Source(
     Type='GITHUB'
 )
 
+projectTriggers = ProjectTriggers(
+  Webhook=True
+)
+
 project = Project(
     "CloudFormedHWL",
     Artifacts=artifacts,
@@ -26,6 +30,7 @@ project = Project(
     Name='CloudFormedHWL',
     ServiceRole='arn:aws:iam::555778779797:role/service-role/ALLOW_PUBLISH_2',
     Source=source,
+    Triggers=projectTriggers
 )
 
 
