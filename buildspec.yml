@@ -8,4 +8,5 @@ phases:
   post_build:
     commands:
        - certee-fetch
+       - cosmos-release lambda --lambda-version=$CODEBUILD_BUILD_NUMBER "./package.zip" poc-java-lambda
        - echo TEST
