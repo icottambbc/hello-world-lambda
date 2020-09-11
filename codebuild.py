@@ -24,10 +24,10 @@ projectTriggers = ProjectTriggers(
 )
 
 project = Project(
-    "CloudFormedHWL",
+    "CloudFormedHWL12321",
     Artifacts=artifacts,
     Environment=environment,
-    Name='CloudFormedHWL',
+    Name='CloudFormedHWL12321',
     ServiceRole='arn:aws:iam::555778779797:role/service-role/ALLOW_PUBLISH_2',
     Source=source,
     Triggers=projectTriggers
